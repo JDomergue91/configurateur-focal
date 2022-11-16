@@ -19,14 +19,86 @@ const couleurText = [
     { couleur: 'Jaune', code: '#e2d047' },
     { couleur: 'Orange', code: '#f1722f' }
 ];
-let selectedTissu = 'Violet';
-let selectedPoche = 'Rouge';
-let customText = 'Votre texte ici';
-let selectedTextColor = 'Noir';
-let textOption = true;
+let selectedTissu = 'Jaune';
+// let selectedPoche = 'Rouge';
+// let customText = 'Votre texte ici';
+// let selectedTextColor = 'Noir';
+// let textOption = true;
 const prixLettre = 1.80;
 
 window.addEventListener("load", () => {
 console.log("everything's ready !");
 
 })
+
+const textCustom = document.getElementById('customText');
+const textColor = document.getElementById('textColorOptions');
+const blockTissu = document.getElementById('tissu');
+const titreTissu = document.getElementById('displayTissu');
+const imgTissu = document.getElementById('optionTissuImage');
+
+    optionsTissu.forEach(tissu => {
+
+        console.log(tissu);
+
+        const divTissu = document.createElement('div');
+        divTissu.classList.add("colorRound");
+        divTissu.style.backgroundColor = tissu.code;
+        divTissu.setAttribute("id", tissu.couleur);
+
+        if (selectedTissu == tissu.couleur) {
+
+            divTissu.classList.add("selectedColor");
+            titreTissu.textContent = tissu.couleur;
+            imgTissu.setAttribute("src", tissu.image);
+        }
+        blockTissu.appendChild(divTissu);
+
+        const clickTissu = document.getElementById(tissu.couleur);
+
+        divTissu.addEventListener('click', event => {
+            
+            selectedTissu = divTissu;
+            // divTissu.forEach(tissu => {
+            //     tissu.classList.add("selectedColor");
+
+            // })
+            
+        })
+    });
+ 
+
+
+
+
+
+
+const textPerso = document.querySelectorAll('[name="useText"]').forEach(radioElement => {
+    radioElement.addEventListener("change", event => {
+        const activeText = event.target.value;
+        // console.log(activeText);
+
+        if (activeText == "false") {
+            textCustom.style.display = 'none';
+            textColor.style.display = 'none';
+        } else if ( activeText == "true") {
+            textCustom.style.display = 'unset';
+            textColor.style.display = 'unset';
+        }
+    })
+})
+
+
+textCustom.addEventListener("input", (event) => {
+    const nbLetter = event.target.value.length;
+    const inputText  = event.target.value;
+
+    // console.log(nbLettre);
+
+    const textConfig = document.querySelector(".textePerso");
+
+    textConfig.textContent = inputText;
+
+})
+
+

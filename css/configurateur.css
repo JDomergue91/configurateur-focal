@@ -40,7 +40,7 @@ body {
 .tools {
     width: 370px;
 }
-.TitreTexte {
+.titreTexte {
     background-color: #7c7c7c;
     width: 80%;
     margin:auto;
@@ -60,7 +60,7 @@ body {
     color: #7c7c7c;
     font-weight: bold;
 }
-.ColorSelector {
+.colorSelector {
     width: 80%;
     margin:auto;
     padding:10px;
@@ -69,7 +69,7 @@ body {
 
 }
 
-.ColorRound {
+.colorRound {
     width:40px;
     height: 40px;
     border-radius: 50%;
@@ -78,7 +78,7 @@ body {
     margin:10px;
 }
 
-.ImageTransition {
+.imageTransition {
     -webkit-transition: opacity 1s ease-in-out;
     -moz-transition: opacity 1s ease-in-out;
     -o-transition: opacity 1s ease-in-out;
